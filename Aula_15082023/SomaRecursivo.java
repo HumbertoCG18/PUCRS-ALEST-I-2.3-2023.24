@@ -6,7 +6,9 @@ public class SomaRecursivo{
     public static int somaVetorRecursivo(int[] vetor, int index) {
         if (index < 0) {
             return 0; // Condição de parada: índice negativo, retorna zero
-        } else {
+        }
+        
+        else{
             return vetor[index] + somaVetorRecursivo(vetor, index - 1); // Chamada recursiva
         }
     }

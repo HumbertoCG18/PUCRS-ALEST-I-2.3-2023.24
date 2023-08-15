@@ -5,7 +5,9 @@ public class Recursiva{
     public static double calcularPotencia(double base, int expoente) {
         if (expoente == 0) {
             return 1.0;
-        } else {
+        } 
+        
+        else{
             return base * calcularPotencia(base, expoente - 1);
         }
     }

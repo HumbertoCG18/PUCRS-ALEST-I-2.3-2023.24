@@ -13,9 +13,13 @@ public class VerifyPolinomio {
     private static boolean isPalindromeHelper(String str, int start, int end) {
         if (start >= end) {
             return true; // Condição de parada: índices se cruzaram
-        } else if (str.charAt(start) != str.charAt(end)) {
+        } 
+        
+        else if (str.charAt(start) != str.charAt(end)) {
             return false; // Caracteres não correspondem
-        } else {
+        } 
+        
+        else{
             return isPalindromeHelper(str, start + 1, end - 1); // Chamada recursiva
         }
     }
@@ -26,7 +30,9 @@ public class VerifyPolinomio {
         
         if (resultado) {
             System.out.println("A string é um palíndromo.");
-        } else {
+        } 
+        
+        else{
             System.out.println("A string não é um palíndromo.");
         }
     }
