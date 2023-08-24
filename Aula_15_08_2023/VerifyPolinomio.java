@@ -1,4 +1,4 @@
-package Aula_15082023;
+package Aula_15_08_2023;
 
 public class VerifyPolinomio {
 

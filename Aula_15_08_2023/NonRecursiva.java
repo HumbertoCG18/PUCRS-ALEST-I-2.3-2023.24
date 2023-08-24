@@ -1,15 +1,15 @@
-package Aula_15082023;
+package Aula_15_08_2023;
 
-public class Recursiva{
+public class NonRecursiva{
 
     public static double calcularPotencia(double base, int expoente) {
-        if (expoente == 0) {
-            return 1.0;
-        } 
+        double resultado = 1.0;
         
-        else{
-            return base * calcularPotencia(base, expoente - 1);
+        for (int i = 0; i < expoente; i++) {
+            resultado *= base;
         }
+        
+        return resultado;
     }
 
     public static void main(String[] args) {
