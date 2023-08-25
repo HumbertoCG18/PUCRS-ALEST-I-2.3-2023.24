@@ -1,9 +1,6 @@
 package Aula_24_08_2023;
 import java.util.Random;
 
-/**
- * Principal
- */
 public class Principal {
 
     public static void main(String[] args) {
