@@ -1,3 +1,5 @@
+package _1256;
+
 import java.util.Scanner;
 import java.util.Arrays;
 
