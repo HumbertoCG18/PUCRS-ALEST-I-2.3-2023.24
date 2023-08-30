@@ -3,7 +3,7 @@ package _1256;
 import java.util.Scanner;
 import java.util.Arrays;
 
-public class P1256{
+public class Main{
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		//sc.useLocale(Locale.ENGLISH);

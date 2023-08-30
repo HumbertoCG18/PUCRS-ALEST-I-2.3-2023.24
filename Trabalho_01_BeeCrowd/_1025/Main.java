@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-public class P1025{
+public class Main{
     public static int pesquisaBinaria(int[] V, int valor) {
         int inicio = 0, fim = V.length;
 
