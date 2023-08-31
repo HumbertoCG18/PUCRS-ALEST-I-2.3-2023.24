@@ -1,4 +1,4 @@
-package _1256;
+package _1256_Verify;
 
 import java.util.Scanner;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package _1452;
+package _1452_Verify;
 
 import java.util.Scanner;
 import java.util.Map;
