@@ -1,4 +1,4 @@
-package _1340;
+package _1340_Verify;
 import java.util.*;
 
 public class Main {
