@@ -26,3 +26,24 @@ A entrada é composta por vários casos de teste. Cada caso de teste é iniciado
 ## Saida
 Para cada caso de teste, o programa deve imprimir a soma total de conexões entre cliente e servidores em uma linha, desconsiderando múltiplas conexões entre um mesmo par de cliente e servidor.
 
+
+# Explicação 
+1. O programa começa com um loop que continua enquanto N e M (número de servidores e clientes) não forem ambos iguais a zero. Isso significa que ele continuará lendo e processando casos de teste até que a entrada de dados termine.
+
+1. Para cada caso de teste, o programa lê o número de servidores (N) e o número de clientes (M).
+
+1. Em seguida, ele cria uma estrutura de dados serverApplications, que é um HashMap onde as chaves são os nomes das aplicações e os valores são conjuntos (HashSet) de servidores que fornecem essa aplicação. Isso permite que o programa mantenha um registro de quais servidores fornecem cada aplicação.
+
+1. O programa começa a ler os detalhes dos servidores. Para cada servidor, ele lê o número de aplicações fornecidas por esse servidor (Qi) e, em seguida, lê os nomes das aplicações e os registra no serverApplications.
+
+1. Em seguida, o programa inicializa uma variável totalConnections para armazenar o número total de conexões entre clientes e servidores para o caso de teste atual.
+
+1. O programa começa a ler os detalhes dos clientes. Para cada cliente, ele lê o número de aplicações requisitadas por esse cliente (Pj).
+
+1. Para cada aplicação requisitada pelo cliente, o programa verifica se essa aplicação está presente no serverApplications. Se estiver presente, ele obtém a lista de servidores que fornecem essa aplicação e adiciona todos esses servidores a um conjunto connectedServers. Isso garante que um cliente se conectará a todos os servidores que fornecem pelo menos uma das aplicações requisitadas.
+
+1. No final do processamento de cada cliente, o programa adiciona o tamanho do conjunto connectedServers ao totalConnections. Isso representa o número de conexões únicas que esse cliente estabelecerá com os servidores.
+
+1. Após processar todos os clientes, o programa imprime o totalConnections para o caso de teste atual.
+
+1. O loop continua para o próximo caso de teste, e o processo se repete até que N e M sejam iguais a zero, indicando o fim da entrada.
