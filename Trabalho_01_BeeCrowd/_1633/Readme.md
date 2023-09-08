@@ -2,7 +2,7 @@
 
 # <center>Estatística Hexa</center> #
 
-Dada uma sequência de inteiros positivos em hexadecimal, por exemplo, S = [9af47c0b, 2545557, ff6447979], definimos soma(S) como sendo a soma de todos os elementos de S. Considere agora uma certa permutação dos 16 dígitos hexadecimais, por exemplo, p = [4, 9, 5, a, 0, c, f, 3, d, 7, 8, b, 1, 2, 6, e]. A partir da sequência base S, podemos definir uma sequência transformada S[4] , que é obtida pela remoção de todas as ocorrêcias do dígito hexadecimal 4 de todos os inteiros em S, S[4] = [9af7c0b, 255557, ff67979]. Em seguida, podemos remover o dígito 9 e obter S[4,9] = [af7c0b, 255557, ff677]. Seguindo a ordem dos dígitos na permutação p, podemos definir dessa forma 16 sequências: S[4] , S[4,9] , S[4,9,5] ,...,S[4,9,5,a,0,c,f,3,d,7,8,b,1,2,6,e] . Estamos interessados em somar todos os elementos dessas 16 sequências:
+Dada uma sequência de inteiros positivos em hexadecimal, por exemplo, $ S = [9af47c0b, 2545557, ff6447979] $, definimos soma(S) como sendo a soma de todos os elementos de S. Considere agora uma certa permutação dos **16 dígitos** hexadecimais, por exemplo, $ p = [4, 9, 5, a, 0, c, f, 3, d, 7, 8, b, 1, 2, 6, e]$. A partir da sequência base S, podemos definir uma sequência transformada $S[4]$ , que é obtida pela remoção de todas as ocorrêcias do dígito hexadecimal 4 de todos os inteiros em S, $S[4] = [9af7c0b, 255557, ff67979]$. Em seguida, podemos remover o dígito 9 e obter $S[4,9] = [af7c0b, 255557, ff677]$. Seguindo a ordem dos dígitos na permutação p, podemos definir dessa forma 16 sequências: $S[4] , S[4,9] , S[4,9,5] ,...,S[4,9,5,a,0,c,f,3,d,7,8,b,1,2,6,e]$. Estamos interessados em somar todos os elementos dessas 16 sequências:
 
 <center> 
 
