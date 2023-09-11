@@ -1,4 +1,4 @@
-package _1025;
+package _1025_Verify;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -18,7 +18,6 @@ A saída deverá ser impressa conforme os exemplos fornecidos abaixo, onde a qua
 
 <br>
 <br>
-
 <center> 
 
 # Resolução:
