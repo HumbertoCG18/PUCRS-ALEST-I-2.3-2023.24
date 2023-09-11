@@ -1,3 +1,25 @@
+<style>
+.markdown-body {
+  --md-code-background: #e3dcef;
+  --md-code-text: #4a2b7b;
+  --md-code-tabs: #c6b8dd;
+  --md-code-radius: 4px;
+}
+</style>
+
+<script>
+import React from 'react';
+import * as rdmd from '@readme/markdown';
+
+export default ({ body }) => (
+  <div className="markdown-body">
+    {rdmd(body)}
+  </div>
+);
+</script>
+
+<div className="markdown-body">
+
 #### <center>BeeCrowd | 1256</center> ####
 
 # <center>Tabelas Hash</center> #
@@ -25,6 +47,7 @@ A saída deverá ser impressa conforme os exemplos fornecidos abaixo, onde a qua
 
 
 O objetivo deste problema é simular a inserção de chaves em tabelas de dispersão usando uma função de dispersão e tratamento de colisões por encadeamento exterior.
+
 
 ## Entrada: 
 - A entrada começa com um inteiro N que representa a quantidade de casos de teste.
@@ -55,7 +78,7 @@ A saída do programa representa como as chaves estão distribuídas nos endereç
     - No primeiro caso, temos M=13 e C=5, com as chaves 49, 88, 23, 90 e 44.
     - No segundo caso, temos M=7 e C=4, com as chaves 18, 29, 35 e 60.
 
-```
+```javascript
 0 -> \
 1 -> 49 -> \
 2 -> 90 -> \
@@ -69,7 +92,8 @@ A saída do programa representa como as chaves estão distribuídas nos endereç
 10 -> 88 -> \
 11 -> \
 12 -> \
-
+```
+```javascript
 0 -> \
 1 -> \
 2 -> 18 -> 60 -> \
@@ -78,4 +102,7 @@ A saída do programa representa como as chaves estão distribuídas nos endereç
 5 -> \
 6 -> \
 ```
+
+</div>
+
 
