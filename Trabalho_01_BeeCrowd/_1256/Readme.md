@@ -1,25 +1,3 @@
-<style>
-.markdown-body {
-  --md-code-background: #e3dcef;
-  --md-code-text: #4a2b7b;
-  --md-code-tabs: #c6b8dd;
-  --md-code-radius: 4px;
-}
-</style>
-
-<script>
-import React from 'react';
-import * as rdmd from '@readme/markdown';
-
-export default ({ body }) => (
-  <div className="markdown-body">
-    {rdmd(body)}
-  </div>
-);
-</script>
-
-<div className="markdown-body">
-
 #### <center>BeeCrowd | 1256</center> ####
 
 # <center>Tabelas Hash</center> #
@@ -78,7 +56,7 @@ A saída do programa representa como as chaves estão distribuídas nos endereç
     - No primeiro caso, temos M=13 e C=5, com as chaves 49, 88, 23, 90 e 44.
     - No segundo caso, temos M=7 e C=4, com as chaves 18, 29, 35 e 60.
 
-```javascript
+```java
 0 -> \
 1 -> 49 -> \
 2 -> 90 -> \
@@ -93,7 +71,7 @@ A saída do programa representa como as chaves estão distribuídas nos endereç
 11 -> \
 12 -> \
 ```
-```javascript
+```java
 0 -> \
 1 -> \
 2 -> 18 -> 60 -> \
@@ -102,7 +80,3 @@ A saída do programa representa como as chaves estão distribuídas nos endereç
 5 -> \
 6 -> \
 ```
-
-</div>
-
-
