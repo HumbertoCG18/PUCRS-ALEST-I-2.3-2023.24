@@ -1,6 +1,9 @@
-#### <center>BeeCrowd | 1256</center> ####
+<center> 
 
-# <center>Tabelas Hash</center> #
+#### BeeCrowd | 1256 ####
+
+# Tabelas Hash #
+</center>
 
 As tabelas Hash, também conhecidas como tabelas de dispersão, armazenam elementos com base no valor absoluto de suas chaves e em técnicas de tratamento de colisões. Para o cálculo do endereço onde deve ser armazenada uma determinada chave, utiliza-se uma função denominada função de dispersão, que transforma a chave em um dos endereços disponíveis na tabela.
 
