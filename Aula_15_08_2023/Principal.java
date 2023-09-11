@@ -2,12 +2,12 @@ package Aula_15_08_2023;
 
 public class Principal {
 
-    private static int expoenteNormal(int b, int e){
+    /**private static int expoenteNormal(int b, int e){
         int resultado=1;
         for(int i=0; i<e; i++)
             resultado=resultado*b;
         return resultado;
-    }
+    }  */
 
     private static int expoenteRecursivo(int b, int e){
 
