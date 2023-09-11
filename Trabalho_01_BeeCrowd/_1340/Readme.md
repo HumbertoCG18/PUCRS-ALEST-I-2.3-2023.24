@@ -1,3 +1,31 @@
+<style>
+blue {
+  color: lightblue;
+}
+
+red {
+  color: red;
+}
+
+green {
+  color: lightgreen;
+}
+
+yellow {
+  color: yellow;
+}
+
+orange {
+  color: orange;
+}
+
+grey {
+  color: grey;
+}
+</style>
+
+
+
 #### <center>BeeCrowd | 1340</center> ####
 
 # <center>Eu Posso Adivinhar a Estrutura de Dados!</center> #
@@ -18,17 +46,18 @@ Existem muitos casos de testes. Cada caso de teste começa com a linha contando 
 ## Saída
 Para cada caso de teste, mostre um dos seguintes:
 
-stack
+### <green>Stack</green> 
 É definitivamente uma pilha.
 
-queue
+### <yellow>Queue</yellow>
 É definitivamente uma fila.
 
-priority queue
+### <orange>Priority queue</orange>
 É definitivamente uma fila de prioridade.
 
-impossible
+### <red>Impossible</red>
 Não pode ser uma pilha, uma fila ou uma fila de prioridade.
 
-not sure
+### <grey>Not sure</grey>
 Pode ser mais de uma das três estruturas mencionadas acima.
+
