@@ -1,5 +1,4 @@
 package Aula_12_09_2023.listaEstatica;
-import java.io.IOException;
 
 /**
  * ListaEstatica
