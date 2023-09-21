@@ -1,25 +1,17 @@
 package Aula_12_09_2023.ListaDinamicaSimples;
-/**
- * ListaDinamicaSimples
- */
+
 public class ListaDinamicaSimples {
 
     private class Nodo{
-        public int value;
         public Nodo prox;
         public Nodo(int v){
-            value=v;
             prox=null;
         }
     }
 
     private Nodo header;
-    private int nElements;
-
-
     public ListaDinamicaSimples() {
         header=null;
-        nElements=0;
     }
 
     public boolean add(int value){
@@ -36,34 +28,29 @@ public class ListaDinamicaSimples {
         return true;
     }
 
-    /**public boolean add(int value, int index){
-    }
-    
-    public int get(int index){
-    }
-    
-    public void remove(int index){
-    }
-    
-    public int set(int value, int index){
-    }
-    
-    public void clear(){
+    public int size() {
+        return 0;
     }
 
-    public boolean contains(int value){
+    public String get(int i) {
+        return null;
     }
-    
-    public int indexOf(int value){
+
+    public void remove(int i) {
     }
-    
-    public boolean isEmpty(){
+
+    public int contains(int i) {
+         return 0;
     }
-    
-    public int lastIndexOf(int value){
+
+    public int indexOf(int i) {
+        return 0;
     }
-    
-    public int size(){
+
+    public int lastIndexOf(int i) {
+        return 0;
     }
-/** */
+
+    public void add(int i, int j) {
+    }
 }

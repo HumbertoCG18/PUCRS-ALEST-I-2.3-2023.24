@@ -26,12 +26,13 @@ public class Main {
         System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-");
         for(int i=0; i<le.size(); i++)
             System.out.println("le["+i+"]: "+le.get(i));
-/*
-        le.remove(13);
+
+        /*le.remove(13); Não é possivel ele acessar um index que a lista não possui.
         System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-");
         for(int i=0; i<le.size(); i++)
             System.out.println("le["+i+"]: "+le.get(i));
-*/
+        */
+
         le.add(10);
         System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-");
         for(int i=0; i<le.size(); i++)
