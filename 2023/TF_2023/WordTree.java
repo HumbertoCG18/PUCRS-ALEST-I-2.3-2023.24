@@ -16,6 +16,7 @@ public class WordTree {
         private CharNode father;
         private List<CharNode> children;
 
+        @SuppressWarnings("unused")
         public CharNode(char character, CharNode father, boolean isFinal) {
             this.character = character;
             this.father = father;
@@ -83,10 +84,12 @@ public class WordTree {
             return aux;
         }
 
+        @SuppressWarnings("unused")
         public int getNumberOfChildren() {
             return children.size();
         }
 
+        @SuppressWarnings("unused")
         public CharNode getChild(int index) {
             return children.get(index);
         }
