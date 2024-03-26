@@ -1,37 +1,39 @@
 package March;
 import java.util.Random;
 
-public class Bubblesort {
-
-    public void sort(int[] values) {
-        for(int i=0; i<values.length; i++) {
-            boolean trocou = false;
-            for(int j=0; j<values.length-i-1; j++) {
-                if(values[j] > values[j+1]) {
-                    int temp = values[j];
-                    values[j] = values[j+1];
-                    values[j+1] = temp;
-                    trocou = true;
+public class BubbleSort {
+    public static long bubbleSort(int[] arr) {
+        long operationCount = 0;
+        int n = arr.length;
+        boolean swapped;
+        for (int i = 0; i < n - 1; i++) {
+            swapped = false;
+            for (int j = 0; j < n - i - 1; j++) {
+                operationCount++; // Contagem de operações
+                if (arr[j] > arr[j + 1]) {
+                    // troca arr[j] e arr[j+1]
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    swapped = true;
                 }
             }
-            if(!trocou) break;
+            // Se não houve troca nesta iteração, o array já está ordenado
+            if (!swapped) {
+                break;
+            }
         }
+        return operationCount;
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         Random r = new Random();
         int MAX = 10000;
         int[] data = new int[MAX];
-        for(int i=0; i<data.length; i++)
-            data[i] = r.nextInt(data.length*10);
+        for (int i = 0; i < data.length; i++)
+            data[i] = r.nextInt(data.length * 10);
 
-        long start = System.nanoTime();
-        Bubblesort bs = new Bubblesort();
-        bs.sort(data);
-        long end = System.nanoTime();
-        //for(int i=0; i<data.length; i++)
-        //    System.out.print(data[i]+" ");
-        //System.out.println();
-        System.out.printf("Tempo para ordenar %d elementos: %d ns\n",MAX,end-start);
+        long operationCount = bubbleSort(data.clone());
+        System.out.println("Número de operações do Bubble Sort: " + operationCount);
     }
 }

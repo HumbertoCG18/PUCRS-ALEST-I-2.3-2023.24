@@ -1,43 +1,33 @@
 package March;
 import java.util.Random;
 
-public class Insertionsort
-{
-    private int[] data;
-
-    public Insertionsort(int[] data) {
-        this.data = data;
-    }
-
-    public void sort() {
-        int temp, j;
-        int n = data.length;
-        for(int i=0; i<n; i++) {
-            temp = data[i];
-            j = i;
-            while(j>0 && temp < data[j-1]) {
-                data[j] = data[j-1];
-                j--;
-                data[j] = temp;
+public class InsertionSort {
+    public static long insertionSort(int[] arr) {
+        long operationCount = 0;
+        int n = arr.length;
+        for (int i = 1; i < n; ++i) {
+            int key = arr[i];
+            int j = i - 1;
+            // Move os elementos de arr[0..i-1] que são maiores que key
+            // para uma posição à frente de suas posições atuais
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
+                operationCount++; // Contagem de operações
             }
+            arr[j + 1] = key;
         }
+        return operationCount;
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         Random r = new Random();
         int MAX = 10000;
         int[] data = new int[MAX];
-        for(int i=0; i<data.length; i++)
-            data[i] = r.nextInt(data.length*10);
+        for (int i = 0; i < data.length; i++)
+            data[i] = r.nextInt(data.length * 10);
 
-        Insertionsort is = new Insertionsort(data);
-        long start = System.nanoTime();
-        is.sort();
-        long end = System.nanoTime();
-        for(int i=0; i<data.length; i++)
-            System.out.print(data[i]+" ");
-        System.out.println();
-        System.out.printf("Tempo para ordenar %d elementos: %d ns\n",MAX,end-start);
+        long operationCount = insertionSort(data.clone());
+        System.out.println("Número de operações do Insertion Sort: " + operationCount);
     }
 }
-
