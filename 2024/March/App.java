@@ -1,7 +1,7 @@
 package March;
 import java.util.Random;
-public class App{
 
+public class App{
     public static void main(String[] args) {
         // Tamanhos de entrada
         int[] sizes = {500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000};
@@ -18,14 +18,12 @@ public class App{
         }
 
         // Imprimir os resultados
-        // TODO: Imprimir os resultados em linhas, e não em colunas
-        
         for (int i = 0; i < 4; i++) {
             System.out.print(getAlgorithmName(i) + ": ");
             for (int j = 0; j < sizes.length; j++) {
                 System.out.print(operationCounts[i][j] + "\t");
             }
-            System.out.println();
+            System.out.println(); // Adiciona uma quebra de linha após imprimir os resultados para cada algoritmo
         }
     }
 
@@ -53,4 +51,3 @@ public class App{
         }
     }
 }
-
