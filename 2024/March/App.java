@@ -18,6 +18,8 @@ public class App{
         }
 
         // Imprimir os resultados
+        // TODO: Imprimir os resultados em linhas, e não em colunas
+        
         for (int i = 0; i < 4; i++) {
             System.out.print(getAlgorithmName(i) + ": ");
             for (int j = 0; j < sizes.length; j++) {
