@@ -19,7 +19,7 @@ public class App {
             operationCounts[3][i] = QuickSort.quickSort(data.clone());
         }
 
-        String filePath = "2024/March/results.csv";
+        String filePath = "2024/March/Resultados.csv";
         try (FileWriter writer = new FileWriter(filePath)) {
             // Escrever os nomes dos algoritmos na primeira linha
             writer.write("Bubble,Insertion,Merge,Quick\n");
