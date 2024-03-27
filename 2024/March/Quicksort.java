@@ -3,8 +3,7 @@ import java.util.Random;
 
 public class QuickSort {
     public static long quickSort(int[] arr) {
-        return quickSort(arr, 0, arr.length - 1);
-        
+        return quickSort(arr, 0, arr.length - 1);    
     }
 
     public  static int operationCount;
