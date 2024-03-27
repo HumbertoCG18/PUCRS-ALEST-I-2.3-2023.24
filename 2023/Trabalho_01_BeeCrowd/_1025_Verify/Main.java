@@ -1,5 +1,4 @@
-package _1025_Verify;
-
+package Trabalho_01_BeeCrowd._1025_Verify;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

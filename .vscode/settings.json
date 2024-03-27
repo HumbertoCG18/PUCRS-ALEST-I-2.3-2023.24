@@ -1,3 +1,7 @@
 {
-    "java.dependency.syncWithFolderExplorer": false
+    "java.dependency.syncWithFolderExplorer": false,
+    "java.project.sourcePaths": [
+        "2023",
+        "2024"
+    ]
 }

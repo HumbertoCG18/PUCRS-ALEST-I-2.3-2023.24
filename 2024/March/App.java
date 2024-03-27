@@ -19,7 +19,6 @@ public class App {
             operationCounts[3][i] = QuickSort.quickSort(data.clone());
         }
 
-        // Escrever os resultados em um arquivo CSV na pasta 2024/March
         String filePath = "2024/March/results.csv";
         try (FileWriter writer = new FileWriter(filePath)) {
             // Escrever os nomes dos algoritmos na primeira linha

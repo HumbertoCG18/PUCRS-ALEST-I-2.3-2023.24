@@ -1,5 +1,4 @@
-package _1256;
-
+package Trabalho_01_BeeCrowd._1256;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;

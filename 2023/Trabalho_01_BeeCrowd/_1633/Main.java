@@ -1,5 +1,4 @@
-package _1633;
-
+package Trabalho_01_BeeCrowd._1633;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
