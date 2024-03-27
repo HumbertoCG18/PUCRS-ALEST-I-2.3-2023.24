@@ -4,7 +4,7 @@ import java.util.Random;
 public class App{
     public static void main(String[] args) {
         // Tamanhos de entrada
-        int[] sizes = {500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000};
+        int[] sizes = {250, 450, 500, 750, 800, 900, 1000, 1500, 2500, 3000};
 
         // Dados para os algoritmos
         long[][] operationCounts = new long[4][sizes.length];
@@ -39,13 +39,13 @@ public class App{
     private static String getAlgorithmName(int index) {
         switch (index) {
             case 0:
-                return "Bubble Sort";
+                return "Bubble";
             case 1:
-                return "Insertion Sort";
+                return "Insertion";
             case 2:
-                return "Merge Sort";
+                return "Merge";
             case 3:
-                return "Quick Sort";
+                return "Quick";
             default:
                 return "Unknown";
         }
