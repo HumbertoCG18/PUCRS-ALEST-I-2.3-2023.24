@@ -1,10 +1,12 @@
 package March;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Random;
 
-public class App{
+public class App {
     public static void main(String[] args) {
         // Tamanhos de entrada
-        int[] sizes = {250, 450, 500, 750, 800, 900, 1000, 1500, 2500, 3000};
+        int[] sizes = {500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000};
 
         // Dados para os algoritmos
         long[][] operationCounts = new long[4][sizes.length];
@@ -17,13 +19,25 @@ public class App{
             operationCounts[3][i] = QuickSort.quickSort(data.clone());
         }
 
-        // Imprimir os resultados
-        for (int i = 0; i < 4; i++) {
-            System.out.print(getAlgorithmName(i) + ": ");
+        String filePath = "2024/March/Resultados.csv";
+        try (FileWriter writer = new FileWriter(filePath)) {
+            // Escrever os nomes dos algoritmos na primeira linha
+            writer.write("Bubble,Insertion,Merge,Quick\n");
+
+            // Escrever os resultados para cada tamanho de entrada
             for (int j = 0; j < sizes.length; j++) {
-                System.out.print(operationCounts[i][j] + "\t");
+                for (int i = 0; i < 4; i++) {
+                    writer.write(operationCounts[i][j] + "");
+                    if (i < 3) {
+                        writer.write(",");
+                    } else {
+                        writer.write("\n");
+                    }
+                }
             }
-            System.out.println(); // Adiciona uma quebra de linha após imprimir os resultados para cada algoritmo
+            System.out.println("Arquivo CSV gerado com sucesso em: " + filePath);
+        } catch (IOException e) {
+            System.err.println("Erro ao escrever no arquivo CSV: " + e.getMessage());
         }
     }
 
@@ -34,20 +48,5 @@ public class App{
             array[i] = random.nextInt(size * 10);
         }
         return array;
-    }
-
-    private static String getAlgorithmName(int index) {
-        switch (index) {
-            case 0:
-                return "Bubble";
-            case 1:
-                return "Insertion";
-            case 2:
-                return "Merge";
-            case 3:
-                return "Quick";
-            default:
-                return "Unknown";
-        }
     }
 }

@@ -1,4 +1,4 @@
-
+package TF_2023;
 public class Palavra {
     private String palavra;
     private String significado;

@@ -1,4 +1,4 @@
-package _1340;
+package Trabalho_01_BeeCrowd._1340;
 import java.util.*;
 
 public class Main {

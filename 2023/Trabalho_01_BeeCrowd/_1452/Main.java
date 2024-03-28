@@ -1,5 +1,4 @@
-package _1452;
-
+package Trabalho_01_BeeCrowd._1452;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Scanner;

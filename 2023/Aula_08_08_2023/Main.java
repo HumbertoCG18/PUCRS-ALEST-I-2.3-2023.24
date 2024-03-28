@@ -1,5 +1,5 @@
+package Aula_08_08_2023;
 public class Main{
-
   public static void main(String args[]){
 
     for(int n=10; n<10000; n+=100)
