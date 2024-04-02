@@ -1,8 +1,4 @@
-/**
- * Classe que implementa uma lista linear usando arranjo.
- * @author Isabel H. Manssour
- */
-
+package April.ListArray;
 public class ListArray {
 
     // Atributos
@@ -13,6 +9,7 @@ public class ListArray {
     /**
      * Construtor da lista.
      */
+    
     public ListArray() {
         this(TAM_DEFAULT);
     }
@@ -21,6 +18,7 @@ public class ListArray {
      * Construtor da lista.
      * @param tam tamanho inicial a ser alocado para data[]
      */
+
     public ListArray(int tam) {
         if (tam <= 0) {
             tam = TAM_DEFAULT;
@@ -32,6 +30,7 @@ public class ListArray {
     /**
      * Esvazia a lista.
      */
+
     public void clear() {
         data = new Integer[TAM_DEFAULT];
         count = 0;
@@ -41,6 +40,7 @@ public class ListArray {
      * Retorna true se a lista nao contem elementos.
      * @return true se a lista nao contem elementos
      */
+
     public boolean isEmpty() {
         // Implemente
         return false;
@@ -50,6 +50,7 @@ public class ListArray {
      * Retorna o numero de elementos armazenados na lista.
      * @return o numero de elementos da lista
      */
+
     public int size() {
         return count;
     }
@@ -58,6 +59,7 @@ public class ListArray {
      * Adiciona um elemento ao final da lista.
      * @param element elemento a ser adicionado ao final da lista
      */
+
     public void add(Integer element) {
         if (count == data.length) {
             setCapacity(data.length * 2);
@@ -72,6 +74,7 @@ public class ListArray {
      * @return o elemento da posicao especificada
      * @throws IndexOutOfBoundsException se (index < 0 || index >= size())
      */
+
     public int get(int index) {
         if ((index < 0) || (index >= count)) {
             throw new IndexOutOfBoundsException("Index = " + index);
@@ -111,6 +114,7 @@ public class ListArray {
      * @return o elemento armazenado anteriormente na posicao da lista
      * @throws IndexOutOfBoundsException se (index < 0 || index >= size())
      */
+
     public int set(int index, Integer element) {
        // Implemente este metodo
         return -1;
@@ -118,10 +122,11 @@ public class ListArray {
 
     /**
      * Procura pelo elemento passado por parametro na lista e retorna true se a 
-	 * lista contem este elemento.
+     * lista contem este elemento.
      * @param element o elemento a ser procurado
      * @return true se a lista contem o elemento passado por parametro
      */
+    
     public boolean contains(Integer element) {
        // Implemente este metodo
         return false;
