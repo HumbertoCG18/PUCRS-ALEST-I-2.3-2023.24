@@ -22,7 +22,7 @@ public class ListArray implements ListTAD {
     /**
      * Construtor da lista: inicializa capacidade com tamanho informado
      * 
-     * @param tam tamanho inicial a ser alocado para data[]
+     * @param tam = tamanho inicial a ser alocado para data[].
      */
     public ListArray(int tam) {
         if (tam <= 0) {
@@ -41,18 +41,14 @@ public class ListArray implements ListTAD {
     }
 
     /**
-     * Retorna true se a lista nao contem elementos.
-     * 
-     * @return true se a lista nao contem elementos
+     * @return true se a lista nao contem elementos.
      */
     public boolean isEmpty() {
         return count == 0;
     }
 
     /**
-     * Retorna o numero de elementos armazenados na lista.
-     * 
-     * @return o numero de elementos da lista
+     * @return o numero de elementos da armazenados na lista.
      */
     public int size() {
         return count;
@@ -60,7 +56,6 @@ public class ListArray implements ListTAD {
 
     /**
      * Adiciona um elemento ao final da lista.
-     * 
      * @param element elemento a ser adicionado ao final da lista
      */
     public void add(int element) {
@@ -87,7 +82,6 @@ public class ListArray implements ListTAD {
 
     /**
      * Retorna o conteúdo da lista como uma string
-     * 
      * @return uma string com os elementos da lista
      */
     @Override
@@ -116,8 +110,7 @@ public class ListArray implements ListTAD {
     }
 
     /**
-     * Substitui o elemento armazenado em uma determinada posicao da lista pelo
-     * elemento passado por parametro, retornando o elemento que foi substituido.
+     * Substitui o elemento armazenado em uma determinada posicao da lista pelo elemento passado por parametro, retornando o elemento que foi substituido.
      * 
      * @param index   a posicao da lista
      * @param element o elemento a ser armazenado na lista
@@ -134,9 +127,7 @@ public class ListArray implements ListTAD {
     }
 
     /**
-     * Procura pelo elemento passado por parametro na lista e retorna true se a
-     * lista contem este elemento.
-     * 
+     * Procura pelo elemento passado por parametro na lista e retorna TRUE se a lista contem este elemento.
      * @param element o elemento a ser procurado
      * @return true se a lista contem o elemento passado por parametro
      */
@@ -151,7 +142,6 @@ public class ListArray implements ListTAD {
 
     /**
      * Adiciona um elemento antes de uma pos. específica
-     * 
      * @param index   posição a inserir o novo elemento
      * @param element elemento a ser adicionado
      * 
@@ -171,13 +161,13 @@ public class ListArray implements ListTAD {
 
     /**
      * Procura e remove um elemento da lista
-     * 
      * @param element elemento a ser removido
      * @return true se encontrar e remover o elemento
      */
     @Override
     public boolean remove(int element) {
         /* 
+        ! Abordagem diferente para remover um elemento da liista 
         for (int pos = 0; pos < count; pos++) {
             if (data[pos] == element) {
                 for (; pos < count - 1; pos++) {
@@ -202,8 +192,7 @@ public class ListArray implements ListTAD {
     }
 
     /**
-     * Procura e retorna a posição de um elemento na lista
-     * 
+     * Procura e retorna a posição de um elemento na lista.
      * @param element elemento a ser encontrado
      * @return posição do elemento ou -1 se não encontrar
      */
@@ -216,8 +205,9 @@ public class ListArray implements ListTAD {
     }
 
     /**
-     * Inverte o conteúdo da lista
+     * Inverte o conteúdo da lista.
      */
+
     public void reverse() {
         int i = 0;
         int j = count - 1;
@@ -233,11 +223,7 @@ public class ListArray implements ListTAD {
     }
 
     /**
-     * 
-     * 
-     * 
      * Procura um elemento e retorna o total de ocorrências
-     * 
      * @param element elemento a ser encontrado
      * @return total de ocorrências
      */
@@ -251,9 +237,7 @@ public class ListArray implements ListTAD {
 
     
     /**
-     * Insere um elemento na posição correta considerando
-     * a ordem natural dos valores
-     * 
+     * Insere um elemento na posição correta considerando a ordem natural dos valores
      * @param element elemento a ser inserido
      */
     public void addIncreasingOrder(int element) {
@@ -267,9 +251,7 @@ public class ListArray implements ListTAD {
     }
 
     /**
-     * Insere um elemento na posição correta considerando
-     * a ordem natural invertida dos valores
-     * 
+     * Insere um elemento na posição correta considerando a ordem natural invertida dos valores.
      * @param element elemento a ser inserido
      */
     public void addDecreasingOrder(int element) {
@@ -281,4 +263,23 @@ public class ListArray implements ListTAD {
         }
         add(element);
     }
+
+        /**
+     * Remove elementos repetidos da lista, mantendo apenas uma ocorrência de cada elemento.
+     * 
+     * Complexidade: O(n^2), onde n é o tamanho da lista.
+     */
+
+    public void unique() {
+        for (int i = 0; i < count; i++) { // O(n)
+            int current = data[i];
+            for (int j = i + 1; j < count; j++) { // O(n)
+                if (data[j] == current) {
+                    remove(j); // O(n)
+                    j--; // O(1)
+                }
+            }
+        }
+    }
+
 }
