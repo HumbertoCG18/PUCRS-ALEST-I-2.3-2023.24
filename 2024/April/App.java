@@ -1,4 +1,4 @@
-
+package April;
 public class App {
     public static void main(String[] args) {
         ListArray lista = new ListArray();
@@ -47,9 +47,7 @@ public class App {
         lista2.addIncreasingOrder(11);
         System.out.println(lista2);
 
-        // acrescente código para testar cada um dos novos 
-        // métodos implementados, exceto o exercício HighScores 
-        // que tem uma classe de teste específica
+        // acrescente código para testar cada um dos novos métodos implementados, exceto o exercício HighScores que tem uma classe de teste específica.
         
     }
 

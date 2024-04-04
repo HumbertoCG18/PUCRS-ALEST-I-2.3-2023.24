@@ -1,14 +1,13 @@
+package April;
 /**
  * Classe que implementa uma lista com os 10 maiores scores
  * 
- * @author <nome dos componentes do grupo aqui>
+ * @author Humberto Corrêa Goems
  */
 public class HighScores {
     // 
-    // não é necessário alterar os atributos nem o construtor 
-    // da classe. 
-    // Apenas complete os métodos indicados, utilizando os recursos
-    // já implementados da classe ListArray
+    // Não é necessário alterar os atributos nem o construtor da classe. 
+    // Apenas complete os métodos indicados, utilizando os recursos já implementados da classe ListArray
     //
     
     private ListArray scores;

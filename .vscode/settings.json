@@ -3,5 +3,6 @@
     "java.project.sourcePaths": [
         "2023",
         "2024"
-    ]
+    ],
+    "java.debug.settings.onBuildFailureProceed": true
 }

@@ -1,7 +1,6 @@
+package April;
 // Interface ListTAD:
-// Define os métodos que qualquer implementação
-// de lista deve ter
-// (isto é, eles PRECISAM ser implementados)
+// Define os métodos que qualquer implementação de lista deve ter (isto é, eles PRECISAM ser implementados).
 public interface ListTAD {
     public void add(int e);
 
