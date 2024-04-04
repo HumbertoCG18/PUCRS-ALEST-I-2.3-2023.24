@@ -68,7 +68,7 @@ public class App {
         System.out.println(lista4);
     }
 
-    public static ListArray mergeOrderedLists(ListArray list1, ListArray list2) {
+    public static ListArray mergeOrderedLists(ListArray list1, ListArray list2) { //Fusão das listas.
         ListArray mergedList = new ListArray();
         int i = 0, j = 0;
 
@@ -100,7 +100,6 @@ public class App {
             mergedList.add(list2.get(j));
             j++;
         }
-
         return mergedList;
     }
 }

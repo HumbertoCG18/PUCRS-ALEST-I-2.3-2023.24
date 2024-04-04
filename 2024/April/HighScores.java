@@ -3,18 +3,12 @@ package April;
  * @author Humberto Corrêa Gomes
  * Classe que implementa uma lista com os 10 maiores scores. 
  */
-public class HighScores {
-    // 
-    // Não é necessário alterar os atributos nem o construtor da classe. 
-    // Apenas complete os métodos indicados, utilizando os recursos já implementados da classe ListArray
-    //
-    
+public class HighScores { 
     private ListArray scores;
 
     public HighScores() {
         scores = new ListArray();
     }
-
     public void insereScore(int score) {
         if (scores.size() < 10) { //Adiciona uma nova pontuação na ordem, caso tenha menos que 10 pontuações
             scores.addDecreasingOrder(score);

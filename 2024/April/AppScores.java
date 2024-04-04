@@ -1,6 +1,6 @@
 package April;
 public class AppScores {
-    // classe para teste do exercício HighScores.
+    // Classe para teste do exercício HighScores.
     // ! Esta classe não deve ser alterada
     public static void main(String[] args) {
         HighScores hs = new HighScores();
