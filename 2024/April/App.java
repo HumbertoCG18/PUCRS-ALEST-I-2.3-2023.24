@@ -1,6 +1,9 @@
 package April;
 public class App {
     public static void main(String[] args) {
+        //? Teria como reduzir as linhas para adicionar elementos?
+        // = Essa estrutura é para fazer com que os elementos se comportem como fila.
+         
         ListArray lista = new ListArray();
         lista.add(2);
         lista.add(4);
@@ -8,7 +11,6 @@ public class App {
         lista.add(8);
         lista.add(10);
         lista.add(12);
-
         lista.add(0, 1);
 
         System.out.println(lista);
