@@ -41,6 +41,7 @@ public class ListDoubleLinked implements ListTAD {
         if ((index < 0) || (index >= count)) {
             throw new IndexOutOfBoundsException("Index = " + index);
         }
+        @SuppressWarnings("unused")
         Node n = new Node(element);
         /*
         if (index == 0) { // inserção no início?
