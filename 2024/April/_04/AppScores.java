@@ -1,4 +1,4 @@
-package April;
+package April._04;
 public class AppScores {
     // Classe para teste do exercício HighScores.
     // ! Esta classe não deve ser alterada

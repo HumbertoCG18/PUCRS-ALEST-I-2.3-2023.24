@@ -1,3 +1,4 @@
+package April._16.Simplifica;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.AffineTransform;
@@ -124,6 +125,7 @@ public class ZoomAndPanListener implements MouseListener, MouseMotionListener, M
         return p2;
     }
  
+    @SuppressWarnings("unused")
     private void showMatrix(AffineTransform at) {
         double[] matrix = new double[6];
         at.getMatrix(matrix);  // { m00 m10 m01 m11 m02 m12 }

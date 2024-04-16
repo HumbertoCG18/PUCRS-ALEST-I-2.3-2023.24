@@ -1,4 +1,4 @@
-package April;
+package April._04;
 /**
  * @author Humberto Corrêa Gomes
  * Classe que implementa uma lista com os 10 maiores scores. 

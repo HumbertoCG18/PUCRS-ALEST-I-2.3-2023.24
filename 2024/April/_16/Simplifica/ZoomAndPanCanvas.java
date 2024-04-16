@@ -1,3 +1,4 @@
+package April._16.Simplifica;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Path2D;
@@ -18,6 +19,7 @@ public class ZoomAndPanCanvas extends JComponent {
     private boolean init = true;
 
     private ZoomAndPanListener zoomAndPanListener;
+    @SuppressWarnings("unused")
     private ListTADPontos listaOriginal;
     private JanelaAplicacao app;
  

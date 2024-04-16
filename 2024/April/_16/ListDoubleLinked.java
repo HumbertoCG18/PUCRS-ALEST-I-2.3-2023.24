@@ -1,28 +1,31 @@
-public class ListSingleLinkedPontos implements ListTADPontos {
+package April._16;
+public class ListDoubleLinked implements ListTAD {
 
-    private Node head;
-    private Node tail;
+    @SuppressWarnings("unused")
+    private Node header;
+    @SuppressWarnings("unused")
+    private Node trailer;
     private int count;
 
     private class Node {
-        public Ponto element;
+        @SuppressWarnings("unused")
+        public int item;
+        @SuppressWarnings("unused")
         public Node next;
 
-        public Node(Ponto element) {
-            this.element = element;
+        public Node(int element) {
+            this.item = element;
             this.next = null;
         }
     }
 
-    public ListSingleLinkedPontos() {
-        head = null;
-        tail = null;
-        count = 0;
-        // clear();
+    public ListDoubleLinked() {
+        clear();
     }
 
     @Override
-    public void add(Ponto element) {
+    public void add(int element) {
+        /*
         Node n = new Node(element);
         if (count != 0) // lista já tem elems?
             tail.next = n;
@@ -30,14 +33,16 @@ public class ListSingleLinkedPontos implements ListTADPontos {
             head = n; // não, este é o primeiro
         tail = n;
         count++;
+        */
     }
 
     @Override
-    public void add(int index, Ponto element) {
+    public void add(int index, int element) {
         if ((index < 0) || (index >= count)) {
             throw new IndexOutOfBoundsException("Index = " + index);
         }
         Node n = new Node(element);
+        /*
         if (index == 0) { // inserção no início?
             n.next = head;
             head = n;
@@ -51,6 +56,7 @@ public class ListSingleLinkedPontos implements ListTADPontos {
             ant.next = n;
             n.next = target;
         }
+        */
         count++;
     }
 
@@ -62,14 +68,17 @@ public class ListSingleLinkedPontos implements ListTADPontos {
      * @throws IndexOutOfBoundsException se (index < 0 || index >= size())
      */
     @Override
-    public Ponto get(int index) {
+    public int get(int index) {
         if ((index < 0) || (index >= count)) {
             throw new IndexOutOfBoundsException("Index = " + index);
         }
+        /*
         Node ptr = head;
         for (int pos = 0; pos < index; pos++)
             ptr = ptr.next;
         return ptr.element;
+        */
+        return index;
     }
 
     /**
@@ -82,20 +91,23 @@ public class ListSingleLinkedPontos implements ListTADPontos {
      * @throws IndexOutOfBoundsException se (index < 0 || index >= size())
      */
     @Override
-    public Ponto set(int index, Ponto element) {
+    public int set(int index, int element) {
         if ((index < 0) || (index >= count)) {
             throw new IndexOutOfBoundsException("Index = " + index);
         }
+        /*
         Node ptr = head;
         for (int pos = 0; pos < index; pos++)
             ptr = ptr.next;
-        Ponto temp = ptr.element; // salva o valor armazenado lá...
+        int temp = ptr.element; // salva o valor armazenado lá...
         ptr.element = element;
         return temp; // ...e retorna ele
+        */
+        return element;
     }
 
     @Override
-    public boolean remove(Ponto element) {
+    public boolean remove(int element) {
         int pos = indexOf(element);
         if (pos == -1)
             return false; // não existe na lista
@@ -104,10 +116,9 @@ public class ListSingleLinkedPontos implements ListTADPontos {
     }
 
     @Override
-    public Ponto removeByIndex(int index) {
-        if ((index < 0) || (index >= count)) {
-            throw new IndexOutOfBoundsException("Index = " + index);
-        }
+    public int removeByIndex(int index) {
+        return index;
+        /*
         Node aux = head;
         // Se for o início, basta avançar o head
         if (index == 0) {
@@ -132,6 +143,7 @@ public class ListSingleLinkedPontos implements ListTADPontos {
         if (count == 0)
             tail = null;
         return aux.element;
+        */
     }
 
     @Override
@@ -145,26 +157,31 @@ public class ListSingleLinkedPontos implements ListTADPontos {
     }
 
     @Override
-    public boolean contains(Ponto element) {
+    public boolean contains(int element) {
         return indexOf(element) != -1;
     }
 
     @Override
-    public int indexOf(Ponto element) {
+    public int indexOf(int element) {
+        return element;
+        /*
         Node ptr = head;
         for (int pos = 0; pos < count; pos++) {
-            if (ptr.element.equals(element))
+            if (ptr.element == element)
                 return pos;
             ptr = ptr.next;
         }
         return -1; // não encontrou
+        */
     }
 
     @Override
     public void clear() {
+        /*
         head = null;
         tail = null;
         count = 0;
+        */
     }
 
     /**
@@ -174,6 +191,8 @@ public class ListSingleLinkedPontos implements ListTADPontos {
      */
     @Override
     public String toString() {
+        return null;
+        /*
         String aux = "[ ";
         Node ptr = head;
         while (ptr != null) {
@@ -182,38 +201,37 @@ public class ListSingleLinkedPontos implements ListTADPontos {
         }
         aux += "]";
         return aux;
+        */
     }
 
-    /**
-     * Retorna o conteúdo da lista ao contrário como uma string
-     * 
-     * @return uma string com os elementos da lista ao contrário
-     */
-    public String toStringReverse() {
-        String aux = "[ ";
-        for (int pos = count - 1; pos >= 0; pos--) {
-            aux = aux + get(pos) + " ";
-        }
-        aux += "]";
-        return aux;
+    @Override
+    public void addFirst(int e) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'addFirst'");
     }
 
-    /**
-     * Retorna o conteúdo da lista ao contrário como uma string
-     * 
-     * @return uma string com os elementos da lista ao contrário
-     */
-    public String toStringReverseRecursive() {
-        String aux = "[";
-        aux += toStringReverseRecursive(head);
-        aux += " ]";
-        return aux;
+    @Override
+    public int getFirst() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getFirst'");
     }
 
-    private String toStringReverseRecursive(Node atual) {
-        if (atual == null)
-            return "";
-        // return atual.element + " " + toStringReverseRecursive(atual.next);
-        return toStringReverseRecursive(atual.next) + " " + atual.element;
+    @Override
+    public int getLast() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getLast'");
     }
+
+    @Override
+    public int removeFirst() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'removeFirst'");
+    }
+
+    @Override
+    public int removeLast() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'removeLast'");
+    }
+
 }
