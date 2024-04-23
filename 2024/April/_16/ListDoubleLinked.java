@@ -1,14 +1,12 @@
 package April._16;
-public class ListDoubleLinked implements ListTAD {
+public class ListDoubleLinked implements ListTAD{
 
     private Node header;
     private Node trailer;
     private int count;
 
     private class Node {
-        @SuppressWarnings("unused")
         public int item;
-        @SuppressWarnings("unused")
         public Node next;
 
         public Node(int element) {
@@ -21,91 +19,62 @@ public class ListDoubleLinked implements ListTAD {
         clear();
     }
 
-    @Override
     public void add(int element) {
-        /*
         Node n = new Node(element);
         if (count != 0) // lista já tem elems?
-            tail.next = n;
+            trailer.next = n;
         else
-            head = n; // não, este é o primeiro
-        tail = n;
+            header = n; // não, este é o primeiro
+        trailer = n;
         count++;
-        */
     }
 
-    @Override
     public void add(int index, int element) {
-        if ((index < 0) || (index >= count)) {
+        if ((index < 0) || (index > count)) {
             throw new IndexOutOfBoundsException("Index = " + index);
         }
-        @SuppressWarnings("unused")
-        Node n = new Node(element);
-        /*
-        if (index == 0) { // inserção no início?
-            n.next = head;
-            head = n;
+        if (index == 0) {
+            addFirst(element);
+        } else if (index == count) {
+            add(element);
         } else {
-            Node ant = null;
-            Node target = head;
-            for (int pos = 0; pos < index; pos++) {
-                ant = target;
-                target = target.next;
+            Node newNode = new Node(element);
+            Node prev = null;
+            Node current = header;
+            for (int i = 0; i < index; i++) {
+                prev = current;
+                current = current.next;
             }
-            ant.next = n;
-            n.next = target;
+            newNode.next = current;
+            prev.next = newNode;
+            count++;
         }
-        */
-        count++;
     }
 
-    /**
-     * Retorna o elemento de uma determinada posicao da lista.
-     * 
-     * @param index a posicao da lista
-     * @return o elemento da posicao especificada
-     * @throws IndexOutOfBoundsException se (index < 0 || index >= size())
-     */
-    @Override
     public int get(int index) {
         if ((index < 0) || (index >= count)) {
             throw new IndexOutOfBoundsException("Index = " + index);
         }
-        /*
-        Node ptr = head;
-        for (int pos = 0; pos < index; pos++)
-            ptr = ptr.next;
-        return ptr.element;
-        */
-        return index;
+        Node current = header;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return current.item;
     }
 
-    /**
-     * Substitui o elemento armazenado em uma determinada posicao da lista pelo
-     * elemento passado por parametro, retornando o elemento que foi substituido.
-     * 
-     * @param index   a posicao da lista
-     * @param element o elemento a ser armazenado na lista
-     * @return o elemento armazenado anteriormente na posicao da lista
-     * @throws IndexOutOfBoundsException se (index < 0 || index >= size())
-     */
-    @Override
     public int set(int index, int element) {
         if ((index < 0) || (index >= count)) {
             throw new IndexOutOfBoundsException("Index = " + index);
         }
-        /*
-        Node ptr = head;
-        for (int pos = 0; pos < index; pos++)
-            ptr = ptr.next;
-        int temp = ptr.element; // salva o valor armazenado lá...
-        ptr.element = element;
-        return temp; // ...e retorna ele
-        */
-        return element;
+        Node current = header;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        int oldValue = current.item;
+        current.item = element;
+        return oldValue;
     }
 
-    @Override
     public boolean remove(int element) {
         int pos = indexOf(element);
         if (pos == -1)
@@ -114,123 +83,130 @@ public class ListDoubleLinked implements ListTAD {
         return true;
     }
 
-    @Override
     public int removeByIndex(int index) {
-        return index;
-        /*
-        Node aux = head;
-        // Se for o início, basta avançar o head
+        if ((index < 0) || (index >= count)) {
+            throw new IndexOutOfBoundsException("Index = " + index);
+        }
+        Node removedNode;
         if (index == 0) {
-            head = head.next;
+            removedNode = header;
+            header = header.next;
         } else {
-            Node prev = head;
-            aux = head.next;
-            for (int pos = 1; pos < index; pos++) {
-                prev = aux;
-                aux = aux.next;
+            Node prev = null;
+            Node current = header;
+            for (int i = 0; i < index; i++) {
+                prev = current;
+                current = current.next;
             }
-            // Remove o elemento
-            prev.next = aux.next;
-            // Se for o final da lista,
-            // ajusta o tail
-            if (index == count - 1)
-                tail = prev;
+            removedNode = current;
+            prev.next = current.next;
+            if (index == count - 1) {
+                trailer = prev;
+            }
         }
         count--;
-        // Se a lista ficar vazia (count==0),
-        // garante que o tail também será NULL
         if (count == 0)
-            tail = null;
-        return aux.element;
-        */
+            trailer = null;
+        return removedNode.item;
     }
 
-    @Override
     public boolean isEmpty() {
         return count == 0;
     }
 
-    @Override
     public int size() {
         return count;
     }
 
-    @Override
     public boolean contains(int element) {
         return indexOf(element) != -1;
     }
 
-    @Override
     public int indexOf(int element) {
-        return element;
-        /*
-        Node ptr = head;
-        for (int pos = 0; pos < count; pos++) {
-            if (ptr.element == element)
-                return pos;
-            ptr = ptr.next;
+        Node current = header;
+        for (int i = 0; i < count; i++) {
+            if (current.item == element)
+                return i;
+            current = current.next;
         }
         return -1; // não encontrou
-        */
     }
 
-    @Override
     public void clear() {
-        /*
-        head = null;
-        tail = null;
+        header = null;
+        trailer = null;
         count = 0;
-        */
     }
 
-    /**
-     * Retorna o conteúdo da lista como uma string
-     * 
-     * @return uma string com os elementos da lista
-     */
-    @Override
     public String toString() {
-        return null;
-        /*
-        String aux = "[ ";
-        Node ptr = head;
-        while (ptr != null) {
-            aux = aux + ptr.element + " ";
-            ptr = ptr.next; // avança para o próximo nodo
+        StringBuilder result = new StringBuilder("[ ");
+        Node current = header;
+        while (current != null) {
+            result.append(current.item).append(" ");
+            current = current.next;
         }
-        aux += "]";
-        return aux;
-        */
+        result.append("]");
+        return result.toString();
     }
 
-    @Override
     public void addFirst(int e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'addFirst'");
+        Node newNode = new Node(e);
+        newNode.next = header;
+        header = newNode;
+        if (count == 0) {
+            trailer = newNode;
+        }
+        count++;
     }
 
-    @Override
     public int getFirst() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getFirst'");
+        if (isEmpty()) {
+            throw new IllegalStateException("List is empty");
+        }
+        return header.item;
     }
 
-    @Override
     public int getLast() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getLast'");
+        if (isEmpty()) {
+            throw new IllegalStateException("List is empty");
+        }
+        return trailer.item;
     }
 
-    @Override
     public int removeFirst() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'removeFirst'");
+        if (isEmpty()) {
+            throw new IllegalStateException("List is empty");
+        }
+        int removedItem = header.item;
+        header = header.next;
+        count--;
+        if (count == 0) {
+            trailer = null;
+        }
+        return removedItem;
     }
 
-    @Override
     public int removeLast() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'removeLast'");
+        if (isEmpty()) {
+            throw new IllegalStateException("List is empty");
+        }
+        int removedItem;
+        if (count == 1) {
+            removedItem = header.item;
+            header = null;
+            trailer = null;
+        } else {
+            Node prev = null;
+            Node current = header;
+            while (current.next != null) {
+                prev = current;
+                current = current.next;
+            }
+            removedItem = current.item;
+            prev.next = null;
+            trailer = prev;
+        }
+        count--;
+        return removedItem;
     }
-
 }

@@ -1,5 +1,4 @@
 package April._16;
-// Interface ListTAD:
 // Define os métodos que qualquer implementação
 // de lista deve ter
 // (isto é, eles PRECISAM ser implementados)
@@ -21,5 +20,4 @@ public interface ListTAD {
     public int getLast();
     public int removeFirst();
     public int removeLast();
-
 }
