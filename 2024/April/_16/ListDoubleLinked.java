@@ -90,7 +90,7 @@ public class ListDoubleLinked implements ListTAD {
         }
         Node removedNode;
         if (index == 0) {
-            removedNode = header;
+            removedNode = header; //Header é só um marcador 
             header = header.next;
         } else {
             Node prev = null;
