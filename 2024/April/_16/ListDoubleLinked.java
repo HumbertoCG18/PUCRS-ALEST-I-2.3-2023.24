@@ -1,9 +1,7 @@
 package April._16;
 public class ListDoubleLinked implements ListTAD {
 
-    @SuppressWarnings("unused")
     private Node header;
-    @SuppressWarnings("unused")
     private Node trailer;
     private int count;
 
