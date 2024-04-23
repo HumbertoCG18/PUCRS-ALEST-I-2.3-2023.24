@@ -1,5 +1,6 @@
 package April._16;
-public class ListDoubleLinked implements ListTAD{
+
+public class ListDoubleLinked implements ListTAD {
 
     private Node header;
     private Node trailer;
@@ -149,6 +150,7 @@ public class ListDoubleLinked implements ListTAD{
         return result.toString();
     }
 
+    @Override
     public void addFirst(int e) {
         Node newNode = new Node(e);
         newNode.next = header;
@@ -159,6 +161,7 @@ public class ListDoubleLinked implements ListTAD{
         count++;
     }
 
+    @Override
     public int getFirst() {
         if (isEmpty()) {
             throw new IllegalStateException("List is empty");
@@ -166,6 +169,7 @@ public class ListDoubleLinked implements ListTAD{
         return header.item;
     }
 
+    @Override
     public int getLast() {
         if (isEmpty()) {
             throw new IllegalStateException("List is empty");
@@ -173,6 +177,7 @@ public class ListDoubleLinked implements ListTAD{
         return trailer.item;
     }
 
+    @Override
     public int removeFirst() {
         if (isEmpty()) {
             throw new IllegalStateException("List is empty");
@@ -186,6 +191,7 @@ public class ListDoubleLinked implements ListTAD{
         return removedItem;
     }
 
+    @Override
     public int removeLast() {
         if (isEmpty()) {
             throw new IllegalStateException("List is empty");
