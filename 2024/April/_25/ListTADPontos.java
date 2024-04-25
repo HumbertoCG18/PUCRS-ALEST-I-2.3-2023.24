@@ -6,21 +6,22 @@ package April._25;
 // (isto é, eles PRECISAM ser implementados)
 //
 public interface ListTADPontos {
-    public void add(Ponto element);
-    public void add(int index, Ponto element);
-    public Ponto get(int index);
-    public Ponto set(int index, Ponto element);
-    public boolean remove(Ponto element);
-    public Ponto removeByIndex(int index);
-    public boolean isEmpty();
-    public int size();
-    public boolean contains(Ponto element);
-    public int indexOf(Ponto element);
-    public void clear();
-    //public void addFirst(int e);
-    //public int getFirst();
-    //public int getLast();
-    //public int removeFirst();
-    //public int removeLast();
+    void add(Ponto element);
+    void add(int index, Ponto element);
+    Ponto get(int index);
+    Ponto set(int index, Ponto element);
+    boolean remove(Ponto element);
+    Ponto removeByIndex(int index);
+    boolean isEmpty();
+    int size();
+    boolean contains(Ponto element);
+    int indexOf(Ponto element);
+    void clear();
 
+    void addFirst(Ponto e);
+    Ponto getFirst();
+    Ponto getLast();
+    Ponto removeFirst();
+    Ponto removeLast();
 }
+

@@ -1,5 +1,7 @@
 package April._25;
 
+import java.util.NoSuchElementException;
+
 /**
  * Classe que implementa uma lista linear usando arranjo.
  * 
@@ -201,7 +203,7 @@ public class ListArrayPontos implements ListTADPontos {
             throw new IndexOutOfBoundsException();
         }
         Ponto val = data[index];
-        for (int pos=index; pos < count - 1; pos++) {
+        for (int pos = index; pos < count - 1; pos++) {
             data[pos] = data[pos + 1];
         }
         count--;
@@ -221,4 +223,58 @@ public class ListArrayPontos implements ListTADPontos {
                 return pos;
         return -1;
     }
+
+    @Override
+    public void addFirst(Ponto element) {
+        if (count == data.length) {
+            setCapacity(data.length * 2);
+        }
+        // Desloca todos os elementos para a frente
+        for (int i = count; i > 0; i--) {
+            data[i] = data[i - 1];
+        }
+        // Insere o novo elemento na primeira posição
+        data[0] = element;
+        count++;
+    }
+
+    @Override
+    public Ponto getFirst() {
+        if (isEmpty()) {
+            throw new NoSuchElementException("Lista vazia!");
+        }
+        return data[0];
+    }
+
+    @Override
+    public Ponto getLast() {
+        if (isEmpty()) {
+            throw new NoSuchElementException("Lista vazia!");
+        }
+        return data[count - 1];
+    }
+
+    @Override
+    public Ponto removeFirst() {
+        if (isEmpty()) {
+            throw new NoSuchElementException("Lista vazia!");
+        }
+        Ponto removedItem = data[0];
+        for (int i = 0; i < count - 1; i++) {
+            data[i] = data[i + 1];
+        }
+        count--;
+        return removedItem;
+    }
+
+    @Override
+    public Ponto removeLast() {
+        if (isEmpty()) {
+            throw new NoSuchElementException("Lista vazia!");
+        }
+        Ponto removedItem = data[count - 1];
+        count--;
+        return removedItem;
+    }
+
 }

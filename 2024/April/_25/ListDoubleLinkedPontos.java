@@ -1,5 +1,7 @@
 package April._25;
 
+import java.util.NoSuchElementException;
+
 public class ListDoubleLinkedPontos implements ListTADPontos {
 
     private Node header;
@@ -11,9 +13,10 @@ public class ListDoubleLinkedPontos implements ListTADPontos {
         public Node next;
         public Node prev;
 
-        public Node(Ponto element) {
+        public Node(Ponto element, Node prev, Node next) {
             this.item = element;
-            this.next = null;
+            this.prev = prev;
+            this.next = next;
         }
     }
 
@@ -23,96 +26,66 @@ public class ListDoubleLinkedPontos implements ListTADPontos {
 
     @Override
     public void add(Ponto element) {
-        Node n = new Node(element);
-        Node last = trailer.prev;
-        n.prev = last;
-        n.next = trailer;
-        last.next = n;
-        trailer.prev = n;
-        count++;
+        add(size(), element);
     }
 
     @Override
     public void add(int index, Ponto element) {
-        if ((index < 0) || (index >= count)) {
-            throw new IndexOutOfBoundsException("Index = " + index);
+        if (index < 0 || index > count) {
+            throw new IndexOutOfBoundsException("Index out of bounds: " + index);
         }
-        Node n = new Node(element);
-        Node atual = header.next; // 1o. elem
-        for (int pos = 0; pos < index; pos++)
-            atual = atual.next;
-        Node ant = atual.prev;
-        ant.next = n;
-        n.prev = ant;
-        atual.prev = n;
-        n.next = atual;
+        Node newNode;
+        if (index == count) {
+            newNode = new Node(element, trailer.prev, trailer);
+            trailer.prev.next = newNode;
+            trailer.prev = newNode;
+        } else {
+            Node current = getNode(index);
+            newNode = new Node(element, current.prev, current);
+            current.prev.next = newNode;
+            current.prev = newNode;
+        }
         count++;
     }
 
-    /**
-     * Retorna o elemento de uma determinada posicao da lista.
-     * 
-     * @param index a posicao da lista
-     * @return o elemento da posicao especificada
-     * @throws IndexOutOfBoundsException se (index < 0 || index >= size())
-     */
     @Override
     public Ponto get(int index) {
-        if ((index < 0) || (index >= count)) {
-            throw new IndexOutOfBoundsException("Index = " + index);
-        }
-        Node ptr = header.next;
-        for (int pos = 0; pos < index; pos++)
-            ptr = ptr.next;
-        return ptr.item;
-
+        return getNode(index).item;
     }
 
-    /**
-     * Substitui o elemento armazenado em uma determinada posicao da lista pelo
-     * elemento passado por parametro, retornando o elemento que foi substituido.
-     * 
-     * @param index   a posicao da lista
-     * @param element o elemento a ser armazenado na lista
-     * @return o elemento armazenado anteriormente na posicao da lista
-     * @throws IndexOutOfBoundsException se (index < 0 || index >= size())
-     */
     @Override
     public Ponto set(int index, Ponto element) {
-        if ((index < 0) || (index >= count)) {
-            throw new IndexOutOfBoundsException("Index = " + index);
-        }
-        Node ptr = header.next;
-        for (int pos = 0; pos < index; pos++)
-            ptr = ptr.next;
-        Ponto temp = ptr.item; // salva o valor armazenado lá...
-        ptr.item = element;
-        return temp; // ...e retorna ele
+        Node node = getNode(index);
+        Ponto oldValue = node.item;
+        node.item = element;
+        return oldValue;
     }
 
     @Override
     public boolean remove(Ponto element) {
-        int pos = indexOf(element);
-        if (pos == -1)
-            return false; // não existe na lista
-        removeByIndex(pos);
-        return true;
+        int index = indexOf(element);
+        if (index != -1) {
+            removeByIndex(index);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public Ponto getFirst() {
+        if (isEmpty()) {
+            throw new NoSuchElementException("Lista vazia!");
+        }
+        return header.next.item;
     }
 
     @Override
     public Ponto removeByIndex(int index) {
-        if ((index < 0) || (index >= count)) {
-            throw new IndexOutOfBoundsException("Index = " + index);
-        }
-        Node atual = header.next;
-        for (int pos = 0; pos < index; pos++)
-            atual = atual.next;
-        Node ant = atual.prev;
-        Node prox = atual.next;
-        ant.next = prox;
-        prox.prev = ant;
+        Node node = getNode(index);
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
         count--;
-        return atual.item;
+        return node.item;
     }
 
     @Override
@@ -132,98 +105,86 @@ public class ListDoubleLinkedPontos implements ListTADPontos {
 
     @Override
     public int indexOf(Ponto element) {
-        Node ptr = header.next;
-        for (int pos = 0; pos < count; pos++) {
-            if (ptr.item.equals(element))
-                return pos;
-            ptr = ptr.next;
+        Node current = header.next;
+        for (int i = 0; i < count; i++) {
+            if (current.item.equals(element)) {
+                return i;
+            }
+            current = current.next;
         }
-        return -1; // não encontrou
+        return -1;
     }
+
+    @Override
+public Ponto getLast() {
+    if (isEmpty()) {
+        throw new NoSuchElementException("Lista vazia!");
+    }
+    return trailer.prev.item;
+}
+
+@Override
+public Ponto removeLast() {
+    if (isEmpty()) {
+        throw new NoSuchElementException("Lista vazia!");
+    }
+    Node last = trailer.prev;
+    Node secondToLast = last.prev;
+    secondToLast.next = trailer;
+    trailer.prev = secondToLast;
+    count--;
+    return last.item;
+}
+
+@Override
+public void addFirst(Ponto element) {
+    Node newNode = new Node(element, header, header.next);
+    header.next.prev = newNode;
+    header.next = newNode;
+    count++;
+}
+
+@Override
+public Ponto removeFirst() {
+    if (isEmpty()) {
+        throw new NoSuchElementException("Lista vazia!");
+    }
+    Node first = header.next;
+    Node second = first.next;
+    header.next = second;
+    second.prev = header;
+    count--;
+    return first.item;
+}
 
     @Override
     public void clear() {
-        header = new Node(null);
-        trailer = new Node(null);
+        header = new Node(null, null, null);
+        trailer = new Node(null, header, null);
         header.next = trailer;
-        trailer.prev = header;
         count = 0;
     }
 
-    /**
-     * Retorna o conteúdo da lista como uma string
-     * 
-     * @return uma string com os elementos da lista
-     */
     @Override
     public String toString() {
-
-        String aux = "[ ";
-        // Começa no header.next (primeiro elem)
-        Node ptr = header.next;
-        // Se chegar no trailer, termina
-        while (ptr != trailer) {
-            aux = aux + ptr.item + " ";
-            ptr = ptr.next; // avança para o próximo nodo
+        StringBuilder builder = new StringBuilder("[ ");
+        Node current = header.next;
+        while (current != trailer) {
+            builder.append(current.item).append(" ");
+            current = current.next;
         }
-        aux += "]";
-        return aux;
-
+        builder.append("]");
+        return builder.toString();
     }
 
-    /*
-    @Override
-    public void addFirst(int e) {
-        Node n = new Node(e);
-        Node first = header.next;
-        n.next = first;
-        first.prev = n;
-        n.prev = header;
-        header.next = n;
-        count++;
-    }
-
-    @Override
-    public int getFirst() {
-        if (count == 0) {
-            throw new IndexOutOfBoundsException("Lista vazia!");
+    private Node getNode(int index) {
+        if (index < 0 || index >= count) {
+            throw new IndexOutOfBoundsException("Index out of bounds: " + index);
         }
-        return header.next.item;
-    }
-
-    @Override
-    public int getLast() {
-        if (count == 0) {
-            throw new IndexOutOfBoundsException("Lista vazia!");
+        Node current = header.next;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
         }
-        return trailer.prev.item;
+        return current;
     }
-
-    @Override
-    public int removeFirst() {
-        if (count == 0) {
-            throw new IndexOutOfBoundsException("Lista vazia!");
-        }
-        Node aux = header.next;
-        Node prox = aux.next;
-        header.next = prox;
-        prox.prev = header;
-        count--;
-        return aux.item;
-    }
-
-    @Override
-    public int removeLast() {
-        if (count == 0) {
-            throw new IndexOutOfBoundsException("Lista vazia!");
-        }
-        Node aux = trailer.prev;
-        Node ant = aux.prev;
-        ant.next = trailer;
-        trailer.prev = ant;
-        count--;
-        return aux.item;
-    }
-    */
-
 }
