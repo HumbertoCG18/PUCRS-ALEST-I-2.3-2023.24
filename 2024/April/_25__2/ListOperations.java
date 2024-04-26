@@ -18,7 +18,7 @@ public class ListOperations {
     // 2. Calcular a média dos elementos de uma lista
     public static double calcularMedia(List<Integer> lista) {
         if (lista.isEmpty()) return 0.0;
-        return (double) calcularSoma(lista) / lista.size();
+        return (double) calcularSoma(lista) / lista.size(); //Divide a soma pelo tamanho da lista
     }
     
     // 3. Encontrar o menor e o maior elemento de uma lista
@@ -195,25 +195,35 @@ public class ListOperations {
         
         System.out.println("Soma: " + calcularSoma(lista));
         System.out.println("Média: " + calcularMedia(lista));
+
         encontrarMinMax(lista);
+
         System.out.println("Índice do último elemento menor que 3: " + encontrarUltimoMenor(lista, 3));
         System.out.println("Soma entre índices 1 e 3: " + calcularSomaEntreIndices(lista, 1, 3));
         System.out.println("Segundo maior elemento: " + encontrarSegundoMaior(lista));
         System.out.println("Ordenação: " + verificarOrdenacao(lista));
         System.out.println("Número de inversões: " + contarInversoes(lista));
-        removerRepetidosAdjacentes(lista);
+        
+        
         System.out.println("Lista sem elementos repetidos adjacentes: " + lista);
-        inserirOrdenado(lista, 3);
+        removerRepetidosAdjacentes(lista);
+        
         System.out.println("Lista com inserção ordenada: " + lista);
+        inserirOrdenado(lista, 3);
         imprimirNormalEInversa(lista);
-        inverterLista(lista);
+        
         System.out.println("Lista invertida: " + lista);
-        removerDuplicados(lista);
+        inverterLista(lista);
+    
         System.out.println("Lista sem elementos duplicados: " + lista);
-        ordenarLista(lista, true);
+        removerDuplicados(lista);
+        
         System.out.println("Lista ordenada crescente: " + lista);
-        ordenarLista(lista, false);
+        ordenarLista(lista, true);
+        
         System.out.println("Lista ordenada decrescente: " + lista);
+        ordenarLista(lista, false);
+
         dividirLista(lista, 3);
         dividirParesEImpares(lista);
     }
