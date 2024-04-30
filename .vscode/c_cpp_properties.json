@@ -1,7 +1,7 @@
 {
     "configurations": [
         {
-            "name": "Win32",
+            "name": "Win32CPP",
             "includePath": [
                 "${workspaceFolder}/**"
             ],
@@ -9,7 +9,10 @@
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE"
-            ]
+            ],
+            "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.39.33519/bin/Hostx64/x64/cl.exe",
+            "cppStandard": "c++23",
+            "cStandard": "c23"
         }
     ],
     "version": 4
