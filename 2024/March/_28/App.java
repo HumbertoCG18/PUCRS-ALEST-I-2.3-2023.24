@@ -1,4 +1,5 @@
-import java.util.Arrays;
+package March._28;
+
 import java.util.Random;
 
 public class App
