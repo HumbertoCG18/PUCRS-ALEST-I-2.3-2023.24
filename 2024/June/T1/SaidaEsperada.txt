@@ -1,5 +1,5 @@
 
-  2. Ascendentes de Júlia S01 A02
+  2. Ascendentes de Júlia S01 A02:
   Peter S01  Mathias S01  Henrique S01  Henrique João S01  Edmundo Antônio S01  Flávia Terezinha S01  
   ---
 
@@ -10,7 +10,7 @@
   Pablo O06 S01  Juan C10 S01  Brenda C10 S01  Laís C10 S01  
   ---
 
-  5. Netos de Edmundo Antônio S01
+  5. Netos de Edmundo Antônio S01:
   Flávio Junior S01  Alexsander J08 S01  Pablo O06 S01  Juan C10 S01  Brenda C10 S01  Laís C10 S01  Júlia S01 A02  
   ---
 
@@ -18,11 +18,11 @@
   Flavio José S01  Mauro Paulo S01  
   ---
 
-  7. Primos de Júlia S01 A02
+  7. Primos de Júlia S01 A02:
   Flávio Junior S01  Alexsander J08 S01  Pablo O06 S01  Juan C10 S01  Brenda C10 S01  Laís C10 S01  
   ---
 
-  8. Mostrar...
+  8. Mostrar estrutura hierárquica a partir de AA:
   AA não pertence à família
   ---
 

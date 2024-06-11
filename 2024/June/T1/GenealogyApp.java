@@ -9,7 +9,7 @@ public class GenealogyApp {
     public static void main(String[] args) {
         GenealogyTree arvore = readTree("2024\\June\\T1\\ArvoreTeste_UTF8.txt"); // Altere aqui
 
-        System.out.println("\n2. Ascendentes de Júlia S01 A02");
+        System.out.println("\n2. Ascendentes de Júlia S01 A02:");
         List<String> asc = arvore.ascendentes("Júlia S01 A02");
         for (String s : asc) {
             System.out.print(s + "  ");
@@ -27,32 +27,32 @@ public class GenealogyApp {
         }
         System.out.println("\n---");
 
-        System.out.println("\n5. Netos de Edmundo Antônio S01");
+        System.out.println("\n5. Netos de Edmundo Antônio S01:");
         List<String> netos = arvore.netos("Edmundo Antônio S01");
         for (String s : netos) {
             System.out.print(s + "  ");
         }
         System.out.println("\n---");
 
-        System.out.println("\n6. Tios de Júlia S01 A02");
+        System.out.println("\n6. Tios de Júlia S01 A02:");
         List<String> tios = arvore.tios("Júlia S01 A02");
         for (String s : tios) {
             System.out.print(s + "  ");
         }
         System.out.println("\n---");
 
-        System.out.println("\n7. Primos de Júlia S01 A02");
+        System.out.println("\n7. Primos de Júlia S01 A02:");
         List<String> primos = arvore.primos("Júlia S01 A02");
         for (String s : primos) {
             System.out.print(s + "  ");
         }
         System.out.println("\n---");
 
-        System.out.println("\n8. Mostrar estrutura hierárquica a partir de AA");
+        System.out.println("\n8. Mostrar estrutura hierárquica a partir de AA:");
         arvore.mostrar("AA");
         System.out.println("\n---");
 
-        System.out.println("\nMostrar estrutura hierárquica a partir de Henrique João S01");
+        System.out.println("\nMostrar estrutura hierárquica a partir de Henrique João S01:");
         arvore.mostrar("Henrique João S01");
     }
 

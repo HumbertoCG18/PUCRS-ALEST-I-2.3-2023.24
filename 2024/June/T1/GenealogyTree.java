@@ -47,8 +47,8 @@ public class GenealogyTree {
         List<String> asc = new ArrayList<>();
         Node pessoa = pesquisa(nome, raiz);
         while (pessoa != null && pessoa.Pai != null) {
-            asc.add(pessoa.Pai.Elem);
             pessoa = pessoa.Pai;
+            asc.add(0, pessoa.Elem); // Adiciona no início para manter a ordem correta
         }
         return asc;
     }
