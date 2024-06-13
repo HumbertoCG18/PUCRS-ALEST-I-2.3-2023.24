@@ -141,4 +141,27 @@ public class GenealogyTree {
             }
         }
     }
+
+    public String mostrarParaArquivo(String nome) {
+        Node pessoa = pesquisa(nome, raiz);
+        if (pessoa != null) {
+            StringBuilder sb = new StringBuilder();
+            mostrarAuxParaArquivo(pessoa, 0, sb);
+            return sb.toString();
+        } else {
+            return nome + " não pertence à família";
+        }
+    }
+
+    private void mostrarAuxParaArquivo(Node r, int nivel, StringBuilder sb) {
+        if (r != null) {
+            for (int i = 0; i < nivel; i++) {
+                sb.append("  | ");
+            }
+            sb.append(r.Elem).append("\n");
+            for (Node f : r.Filhos) {
+                mostrarAuxParaArquivo(f, nivel + 1, sb);
+            }
+        }
+    }
 }
